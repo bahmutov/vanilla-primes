@@ -80,7 +80,9 @@
     }());
 
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#find').addEventListener('click', primesApp.findFirstPrimes);
+      document.querySelector('#find').addEventListener('click', function () {
+        primesApp.findFirstPrimes();
+      });
     });
 
   </script>
