@@ -6,8 +6,8 @@ Use [code snippets](https://github.com/bahmutov/code-snippets)
 
 Tags:
 
-* 0-profile-method-call - initial unoptimized application. Try finding 1000 primes, should take about 8 seconds.
-* 1-removed-try-catch - removed first bottleneck.
+* `0-profile-method-call` - initial unoptimized application. Try finding 1000 primes, should take about 8 seconds.
+* `1-removed-try-catch` - removed first bottleneck.
 
 ### Small print
 
