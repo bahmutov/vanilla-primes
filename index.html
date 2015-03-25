@@ -34,9 +34,9 @@
       }
 
       // finds Nth prime
+      var foundPrimes = [];
       function findPrime(n) {
-        var k = 1;
-        var foundPrimes = [];
+        var k = foundPrimes.length ? foundPrimes[foundPrimes.length - 1] + 1 : 1;
         while (foundPrimes.length < n) {
           if (isPrime(k)) {
             foundPrimes.push(k);
@@ -47,6 +47,7 @@
       }
 
       function findFirstPrimes(n) {
+        foundPrimes = [];
         var primes = [], k, prime;
         for (k = 0; k < n; k += 1) {
           prime = findPrime(k + 1);
