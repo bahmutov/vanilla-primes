@@ -9,13 +9,15 @@ Tags:
 * `0-profile-method-call` - initial unoptimized application. Try finding 1000 primes, should take about 8 seconds.
 * `1-removed-try-catch` - removed first bottleneck, should take less than 5 seconds.
 
+If you need angular version of this application, see [bahmutov/primes](https://github.com/bahmutov/primes).
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014
 
 * [@bahmutov](https://twitter.com/bahmutov)
 * [glebbahmutov.com](http://glebbahmutov.com)
-* [blog](http://bahmutov.calepin.co/)
+* [blog](http://glebbahmutov.com/blog/)
 
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
