@@ -9,6 +9,7 @@ Tags:
 * `0-profile-method-call` - initial unoptimized application. Try finding 1000 primes, should take about 8 seconds.
 * `1-removed-try-catch` - removed first bottleneck, should take less than 5 seconds.
 * `2-reuse-primes` - reusing previously found primes, makes finding 10k primes very fast.
+* `3-web-worker` - moved primes computation to a web worker.
 
 If you need angular version of this application, see [bahmutov/primes](https://github.com/bahmutov/primes).
 

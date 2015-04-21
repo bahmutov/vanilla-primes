@@ -45,6 +45,8 @@
   */
 
   function findPrimes(n) {
+    foundPrimes = [];
+
     var k, primes = [];
     for (k = 0; k < n; k += 1) {
       var prime = findPrime(k + 1);

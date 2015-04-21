@@ -40,8 +40,8 @@
       };
 
       return {
-        findFirstPrimes: function () {
-          var n = Number(document.querySelector('#n').value);
+        worker: worker,
+        findFirstPrimes: function (n) {
           console.log('finding first', n, 'primes');
           worker.postMessage({ cmd: 'primes', n: n });
         }
@@ -51,7 +51,8 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelector('#find').addEventListener('click', function () {
-        primesApp.findFirstPrimes();
+        var n = Number(document.querySelector('#n').value);
+        primesApp.findFirstPrimes(n);
       });
     });
 
