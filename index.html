@@ -23,41 +23,10 @@
   <script>
     var primesApp = (function primesApp() {
 
-      function isPrime(n) {
-        var k;
-        for (k = 2; k < n; k += 1) {
-          if (n % k === 0) {
-            return false;
-          }
-        }
-        return true;
-      }
+      var worker = new Worker('worker.js');
 
-      // finds Nth prime
-      var foundPrimes = [];
-      function findPrime(n) {
-        var k = foundPrimes.length ? foundPrimes[foundPrimes.length - 1] + 1 : 1;
-        while (foundPrimes.length < n) {
-          if (isPrime(k)) {
-            foundPrimes.push(k);
-          }
-          k += 1;
-        };
-        return foundPrimes[foundPrimes.length - 1];
-      }
-
-      function findFirstPrimes(n) {
-        foundPrimes = [];
-        var primes = [], k, prime;
-        for (k = 0; k < n; k += 1) {
-          prime = findPrime(k + 1);
-          primes.push(prime);
-        }
-        return primes;
-      }
-
-      function primeToRow(x, k) {
-        return '<tr><td>' + (k + 1) + '</td><td>' + x + '</td></tr>';
+      function primeToRow(p, k) {
+        return '<tr><td>' + (k + 1) + '</td><td>' + p + '</td></tr>';
       }
 
       function renderPrimes(primes) {
@@ -65,12 +34,16 @@
         document.querySelector('#results').innerHTML = html;
       }
 
+      worker.onmessage = function (e) {
+        console.log('worker has finished');
+        renderPrimes(e.data);
+      };
+
       return {
         findFirstPrimes: function () {
           var n = Number(document.querySelector('#n').value);
           console.log('finding first', n, 'primes');
-          var primes = findFirstPrimes(n);
-          renderPrimes(primes);
+          worker.postMessage({ cmd: 'primes', n: n });
         }
       };
 
